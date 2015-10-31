@@ -1,0 +1,25 @@
+﻿<Window x:Class="LunchClubMailer.Views.HelpWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300" Background="SlateGray">
+    <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition />
+      <RowDefinition />
+      <RowDefinition />
+      <RowDefinition />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="This software will send a participant email to each group in the lunch club, as well as an organizer email that lists all of the groups to the organizers." Grid.Row="0"/>
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="Subject - Subject line of the participant email" Grid.Row="1"/>
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="Prefix Message - Message that will appear before the list of names in the participant email" Grid.Row="2"/>
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="Postfix Message - Message that will appear after the list of names in hte participant email" Grid.Row="3" />
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="Sender Email - The email address the emails will be sent from" Grid.Row="4"/>
+    <TextBlock Margin="2" TextWrapping="Wrap" Text="Organizer Emails - A comma separated list of people who will get a list of all the groups" Grid.Row="5"/>
+  </Grid>
+</Window>
