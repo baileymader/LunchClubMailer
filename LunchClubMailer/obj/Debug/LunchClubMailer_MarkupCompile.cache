@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\
 LunchClubMailer
 none
 false
 DEBUG;TRACE
 
-4764910802
+6-1799956097
 
-161678616622
+232066177134
 16279381718
-Views\AddMember.xaml;Views\HelpWindow.xaml;Views\ImportExport.xaml;Views\LunchClubMailerWPF.xaml;
+Views\AddMember.xaml;Views\AddSpecialGuest.xaml;Views\HelpWindow.xaml;Views\ImportExport.xaml;Views\LunchClubMailerWPF.xaml;Views\SpecialGuestsWindow.xaml;
 
 False
 

@@ -46,7 +46,8 @@
       
     <Menu Grid.ColumnSpan="3" Margin="-5, 0" VerticalAlignment="Center" >
       <MenuItem Header="File" VerticalAlignment="Center">
-        <MenuItem Header="Export Member List" Command="{Binding ExportMemberListCommand}"/>
+        <MenuItem Header="Save File" Command="{Binding SaveFileCommand}"/>
+        <MenuItem Header="Send With Special Guests" Command="{Binding SpecialGuestsCommand}"/>
       </MenuItem>
       <MenuItem Header="Help">
         <MenuItem Header="Help Page" Command="{Binding LaunchHelpCommand}"/>

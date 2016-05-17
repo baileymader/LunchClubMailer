@@ -3,10 +3,9 @@
   <isLoaded>true</isLoaded>
   <members>
     <LunchClubMember>
-      <name>Bailey Mader</name>
-      <email>bailey.mader@pioneer.com</email>
-      <phoneNumber>5-6574</phoneNumber>
-      <diet />
+      <name>Test Person</name>
+      <email>fakeemail@website.biz</email>
+      <phoneNumber>5555555555</phoneNumber>
     </LunchClubMember>
   </members>
 </LunchClubFile>

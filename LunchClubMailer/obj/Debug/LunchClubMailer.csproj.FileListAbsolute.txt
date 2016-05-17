@@ -1,22 +1,55 @@
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.config
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.manifest
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.application
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.pdb
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csprojResolveAssemblyReference.cache
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.baml
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.baml
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.baml
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.baml
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.g.cs
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.g.cs
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.g.cs
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.g.cs
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer_MarkupCompile.cache
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.g.resources
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.Properties.Resources.resources
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csproj.GenerateResource.Cache
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe.manifest
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.application
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe
-Q:\Sandbox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.pdb
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.config
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.manifest
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.application
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.pdb
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csprojResolveAssemblyReference.cache
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddSpecialGuest.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\SpecialGuestsWindow.baml
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddSpecialGuest.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\Views\SpecialGuestsWindow.g.cs
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer_MarkupCompile.cache
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.g.resources
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.Properties.Resources.resources
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csproj.GenerateResource.Cache
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe.manifest
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.application
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe
+C:\Field_Engineering_Collection\Alex s SandBox\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.pdb
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.config
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.pdb
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.manifest
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.application
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.pdb
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csprojResolveAssemblyReference.cache
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddSpecialGuest.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\SpecialGuestsWindow.baml
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddMember.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\AddSpecialGuest.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\HelpWindow.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\ImportExport.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\LunchClubMailerWPF.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\Views\SpecialGuestsWindow.g.cs
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer_MarkupCompile.cache
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.g.resources
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.Properties.Resources.resources
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.csproj.GenerateResource.Cache
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe.manifest
+C:\Users\maderba\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.application
+C:\Users\Bailey\Documents\GitHub\LunchClubMailer\LunchClubMailer\bin\Debug\LunchClubMailer.exe.config
+C:\Users\Bailey\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.exe
+C:\Users\Bailey\Documents\GitHub\LunchClubMailer\LunchClubMailer\obj\Debug\LunchClubMailer.pdb

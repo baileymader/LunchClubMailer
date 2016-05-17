@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LunchClubMailer.exe" size="37312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LunchClubMailer.exe" size="52160">
       <assemblyIdentity name="LunchClubMailer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yrMXM/MlX/CVEkyp8RGCAFvrlkDh76tRn4nZuuAj2xc=</dsig:DigestValue>
+        <dsig:DigestValue>KuxM+KyfCCGgGquP5SYwlJA19yvs8EQGaNAi/6D7ScM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -44,16 +44,19 @@ namespace LunchClubMailer
         private AddMemberModel addModel = new AddMemberModel();
 
         private EditMemberModel editModel = new EditMemberModel();
-        
+
+        private SpecialGuestsModel guestsModel;
+
         private SmtpClient smtp = new SmtpClient();
 
         private LunchClubFile file = LunchClubFile.GetFile();
 
         public LunchClubModel()
         {
+            guestsModel = new SpecialGuestsModel(this);
             addModel.requestClose += addModel_requestClose;
             editModel.requestClose += editModel_requestClose;
-            if (file.host != null) { smtp.Host = file.host; }
+            if (file.host != null) { smtp.Host = file.host; host = file.host; }
             if (file.subject != null) { subject = file.subject; }
             if (file.prefixText != null) { prefixText = file.prefixText; }
             if (file.postfixText != null) { postfixText = file.postfixText; }
@@ -61,7 +64,7 @@ namespace LunchClubMailer
             if (file.organizerEmails != null) { organizerEmails = file.organizerEmails; }
         }
 
-        public void AddMember(object member)
+        private void AddMember(object member)
         {
             addModel.Clear();
             AddMember newMemberView = new AddMember(addModel);
@@ -69,7 +72,7 @@ namespace LunchClubMailer
             PropertyChanged(this, new PropertyChangedEventArgs("memberList"));
         }
 
-        public void DeleteMember()
+        private void DeleteMember()
         {
             if (selectedMember != null)
             {
@@ -126,8 +129,10 @@ namespace LunchClubMailer
             return shuffledMembers;
         }
 
-        public void SendEmails(object param)
+        public void SendEmails(bool withGuests)
         {
+            ValidateEmail ve = new ValidateEmail();
+
             if(host == null || host.Length == 0)
             {
                 MessageBox.Show("Please add an SMTP host. Can be a server name or an IP address.");
@@ -140,7 +145,7 @@ namespace LunchClubMailer
             {
                 MessageBox.Show("Please add a message to your members. It can come before or after the list of names, or both.");
             }
-            else if (senderEmail == null || !addModel.IsValidEmail(senderEmail)) //TODO: move isvalid email out of AddMemberModel
+            else if (senderEmail == null || !ve.IsValidEmail(senderEmail)) 
             {
                 MessageBox.Show("Please add a valid sender email address.");
             }
@@ -151,27 +156,25 @@ namespace LunchClubMailer
             else
             {
                 smtp.Host = host;
-                BuildEmails();
-                file.host = host;
-                file.subject = subject;
-                file.prefixText = prefixText;
-                file.postfixText = postfixText;
-                file.senderEmail = senderEmail;
-                file.organizerEmails = organizerEmails;
-                file.Save();
+                BuildEmails(withGuests);
+                SaveFile();
                 MessageBox.Show("Emails sent!");
             }
         }
 
-        public void BuildEmails()
+        public void BuildEmails(bool withGuests)
         {
             string organizerText = "";
 
             List<LunchClubMember> members = file.members;
             members = ShuffleMembers(members);
 
+            List<LunchClubGuest> attendingGuests = new List<LunchClubGuest>();
+            if (withGuests) attendingGuests = (from guest in file.guests where guest.isAttending == true select guest).ToList();
+
             int remainder = members.Count() % 5;
             int numGroups = members.Count() / 5;
+            int groupsLeft = members.Count() / 5;
             bool groupOfFour = false;
             bool oddGroups = false;
 
@@ -200,7 +203,8 @@ namespace LunchClubMailer
                 for (int i = 0; i < remainder; i++)
                 {
                     List<LunchClubMember> group = members.GetRange(6 * i, 6);
-                    SendGroupEmail(group);
+                    List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
+                    SendGroupEmail(group, guests);
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -212,7 +216,8 @@ namespace LunchClubMailer
                 for (int i = 0; i < numGroups - remainder; i++)
                 {
                     List<LunchClubMember> group = members.GetRange(5 * i + 6 * remainder, (memberList.Count < 5 ? memberList.Count: 5));
-                    SendGroupEmail(group);
+                    List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
+                    SendGroupEmail(group, guests);
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -224,7 +229,8 @@ namespace LunchClubMailer
                 if (groupOfFour)
                 {
                     List<LunchClubMember> group = members.GetRange(members.Count() - 4, 4);
-                    SendGroupEmail(group);
+                    List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
+                    SendGroupEmail(group, guests);
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -235,7 +241,8 @@ namespace LunchClubMailer
             else //you have a membership of 7,8, or 13 and REALLY need to do some recruiting.
             {
                 List<LunchClubMember> group1 = members.GetRange(0, members.Count() / 2); // first half
-                SendGroupEmail(group1);
+                List<LunchClubGuest> guestGroup1 = attendingGuests.GetRange(0, attendingGuests.Count() / 2);
+                SendGroupEmail(group1, guestGroup1);
                 foreach (LunchClubMember member in group1)
                 {
                     organizerText += member.name + "\n";
@@ -243,7 +250,8 @@ namespace LunchClubMailer
                 organizerText += "------------------------------------\n";
 
                 List<LunchClubMember> group2 = members.GetRange(members.Count() / 2, members.Count() - members.Count() / 2); //second half
-                SendGroupEmail(group2);
+                List<LunchClubGuest> guestGroup2 = attendingGuests.GetRange(attendingGuests.Count() / 2, attendingGuests.Count() - attendingGuests.Count() / 2);
+                SendGroupEmail(group2, guestGroup2);
                 foreach (LunchClubMember member in group2)
                 {
                     organizerText += member.name + "\n";
@@ -256,10 +264,45 @@ namespace LunchClubMailer
 
         }
 
-        public void SendGroupEmail(List<LunchClubMember> group)
+        private static List<LunchClubGuest> GetGuests(List<LunchClubGuest> attendingGuests, ref int groupsLeft)
+        {
+            int numGuests = (attendingGuests.Count() - groupsLeft) > 0 ? 2 : 1;
+            if (attendingGuests.Count() >= numGuests)
+            {
+                List<LunchClubGuest> guests = attendingGuests.GetRange(0, numGuests);
+
+                attendingGuests.Remove(attendingGuests.First());
+                if (numGuests == 2) attendingGuests.Remove(attendingGuests.First());
+                groupsLeft--;
+                return guests;
+            }
+            else
+            {
+                List<LunchClubGuest> guests = attendingGuests;
+                while(attendingGuests.Count() > 0) attendingGuests.Remove(attendingGuests.First());
+                return guests;
+            }
+        }
+
+        public void SendGroupEmail(List<LunchClubMember> group, List<LunchClubGuest> guests )
         {
             MailMessage message = new MailMessage();
-            string emailText = prefixText + "\n";
+            string emailText = prefixText + "\n\n";
+            if (guests.Count > 0)
+            {
+                emailText += file.additionalText + "\n";
+                foreach (LunchClubGuest guest in guests)
+                {
+                    emailText += "\n" + guest.name;
+                    if (guest.diet == null || guest.diet.Length > 0)
+                    {
+                        emailText += ", " + guest.diet;
+                    }
+                    emailText += ", Admin: " + guest.adminName;
+                    message.To.Add(guest.email);
+                    message.To.Add(guest.adminEmail);
+                }
+            }
             foreach (LunchClubMember member in group)
             {
                 emailText += "\n" + member.name;
@@ -298,10 +341,27 @@ namespace LunchClubMailer
             importExport.Show();
         }
 
+        private void SaveFile()
+        {
+            file.host = host;
+            file.subject = subject;
+            file.prefixText = prefixText;
+            file.postfixText = postfixText;
+            file.senderEmail = senderEmail;
+            file.organizerEmails = organizerEmails;
+            file.Save();
+        }
+
         private void LaunchHelp()
         {
             HelpWindow helpWindow = new HelpWindow();
             helpWindow.Show();
+        }
+
+        private void LaunchSpecialGuests()
+        {
+            SpecialGuestsWindow guestWindow = new SpecialGuestsWindow(guestsModel);
+            guestWindow.Show();
         }
 
         #region Commands
@@ -311,7 +371,7 @@ namespace LunchClubMailer
             {
                 if (_SendEmailCommand == null)
                 {
-                    _SendEmailCommand = new DelegateCommand(param => this.SendEmails(param));
+                    _SendEmailCommand = new DelegateCommand(param => this.SendEmails(false));
                 }
                 return _SendEmailCommand;
             }
@@ -370,6 +430,19 @@ namespace LunchClubMailer
         }
         DelegateCommand _LaunchHelpCommand;
         
+        public ICommand SpecialGuestsCommand
+        {
+            get
+            {
+                if (_SpecialGuestsCommand == null)
+                {
+                    _SpecialGuestsCommand = new DelegateCommand(param => this.LaunchSpecialGuests());
+                }
+                return _SpecialGuestsCommand;
+            }
+        }
+
+        DelegateCommand _SpecialGuestsCommand;
 
         public ICommand ExportMemberListCommand
         {
@@ -384,6 +457,20 @@ namespace LunchClubMailer
 
         }
         DelegateCommand _ExportMemberListCommand;
+
+        public ICommand SaveFileCommand
+        {
+            get
+            {
+                if (_SaveFileCommand == null)
+                {
+                    _SaveFileCommand = new DelegateCommand(param => this.SaveFile());
+                }
+                return _SaveFileCommand;
+            }
+        }
+        DelegateCommand _SaveFileCommand;
+
         #endregion
 
         #region EventHandlers

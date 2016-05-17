@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.Globalization;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 
-namespace LunchClubMailer.Models
+namespace LunchClubMailer
 {
-    public class AddMemberModel
+    public class AddSpecialGuestModel
     {
-
         public string name { get; set; }
         public string email { get; set; }
         public string phoneNumber { get; set; }
         public string diet { get; set; }
+        public string adminName { get; set; }
+        public string adminPhoneNumber { get; set; }
+        public string adminEmail { get; set; }
 
         public string GoButtonTitle
         {
@@ -24,13 +26,13 @@ namespace LunchClubMailer.Models
             set
             {
                 //no op
-               
+
             }
         }
 
         private LunchClubFile file = LunchClubFile.GetFile();
 
-        public void AddMember()
+        public void AddGuest()
         {
             ValidateEmail ve = new ValidateEmail();
             if (name.Length == 0)
@@ -45,13 +47,25 @@ namespace LunchClubMailer.Models
             {
                 MessageBox.Show("Please enter a valid phone number");
             }
-            else if (file.members.FirstOrDefault(m => m.name.Equals(name)) != null)
+            else if (adminName.Length == 0)
+            {
+                MessageBox.Show("Please enter an admin name.");
+            }
+            else if (!ve.IsValidEmail(adminEmail))
+            {
+                MessageBox.Show("Please enter a valid admin email.");
+            }
+            else if (adminPhoneNumber.Length < 5)
+            {
+                MessageBox.Show("Please enter a valid admin phone number");
+            }
+            else if (file.guests.FirstOrDefault(m => m.name.Equals(name)) != null)
             {
                 MessageBox.Show("Member already exists under this name. If this is a new person, add a middle initial or department.");
             }
             else
             {
-                file.members.Add(new LunchClubMember { name = this.name, phoneNumber = this.phoneNumber, email = this.email, diet = this.diet });
+                file.guests.Add(new LunchClubGuest { name = this.name, phoneNumber = this.phoneNumber, email = this.email, diet = this.diet, adminEmail = this.adminEmail, adminName = this.adminName, adminPhoneNumber = this.adminPhoneNumber });
                 file.Save();
                 OnRequestClose(null);
             }
@@ -72,7 +86,7 @@ namespace LunchClubMailer.Models
             {
                 if (_AddCommand == null)
                 {
-                    _AddCommand = new DelegateCommand(param => this.AddMember());
+                    _AddCommand = new DelegateCommand(param => this.AddGuest());
                 }
                 return _AddCommand;
             }

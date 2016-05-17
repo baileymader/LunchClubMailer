@@ -31,9 +31,11 @@ namespace LunchClubMailer
 
     public bool isLoaded;
     public List<LunchClubMember> members;
+    public List<LunchClubGuest> guests;
     public string subject;
     public string prefixText;
     public string postfixText;
+    public string additionalText;
     public string senderEmail;
     public string organizerEmails;
     public string host;

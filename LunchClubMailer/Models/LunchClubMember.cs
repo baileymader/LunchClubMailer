@@ -19,9 +19,9 @@ namespace LunchClubMailer
         this.phoneNumber = phoneNumber;
       }
 
-        public string name;
-        public string email;
-        public string phoneNumber;
-        public string diet;
+        public string name { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
+        public string diet { get; set; }
     }
 }

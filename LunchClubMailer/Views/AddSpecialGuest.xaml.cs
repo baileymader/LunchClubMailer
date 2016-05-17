@@ -1,5 +1,4 @@
-﻿using LunchClubMailer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +16,12 @@ using System.Windows.Shapes;
 namespace LunchClubMailer
 {
     /// <summary>
-    /// Interaction logic for AddMember.xaml
+    /// Interaction logic for AddSpecialGuest.xaml
     /// </summary>
-    public partial class AddMember : Window
+    public partial class AddSpecialGuest : Window
     {
         private object model;
-        public AddMember(AddMemberModel model)
+        public AddSpecialGuest(AddSpecialGuestModel model)
         {
             InitializeComponent();
             this.model = model;
@@ -30,7 +29,7 @@ namespace LunchClubMailer
             model.requestClose += HandleRequestClose;
         }
 
-        public AddMember(EditMemberModel model)
+        public AddSpecialGuest(EditSpecialGuestModel model)
         {
             InitializeComponent();
             this.model = model;
@@ -47,5 +46,7 @@ namespace LunchClubMailer
         {
             this.Close();
         }
+
+
     }
 }
