@@ -124,7 +124,7 @@ namespace LunchClubMailer
                 editModel.phoneNumber = guest.phoneNumber;
                 editModel.adminName = guest.adminName;
                 editModel.adminEmail = guest.adminEmail;
-                editModel.adminPhoneNumber = guest.phoneNumber;
+                editModel.adminPhoneNumber = guest.adminPhoneNumber;
                 editModel.diet = guest.diet;
                 editModel.editGuest = guest;
 

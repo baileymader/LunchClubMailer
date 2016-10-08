@@ -77,6 +77,9 @@ namespace LunchClubMailer
             email = string.Empty;
             phoneNumber = string.Empty;
             diet = string.Empty;
+            adminName = string.Empty;
+            adminEmail = string.Empty;
+            adminPhoneNumber = string.Empty;
         }
 
         #region Commands

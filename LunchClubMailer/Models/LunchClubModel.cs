@@ -205,6 +205,10 @@ namespace LunchClubMailer
                     List<LunchClubMember> group = members.GetRange(6 * i, 6);
                     List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
                     SendGroupEmail(group, guests);
+                    foreach (LunchClubGuest guest in guests)
+                    {
+                        organizerText += guest.name + "; " + guest.adminName + "\n";
+                    }
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -218,6 +222,10 @@ namespace LunchClubMailer
                     List<LunchClubMember> group = members.GetRange(5 * i + 6 * remainder, (memberList.Count < 5 ? memberList.Count: 5));
                     List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
                     SendGroupEmail(group, guests);
+                    foreach (LunchClubGuest guest in guests)
+                    {
+                        organizerText += guest.name + "; " + guest.adminName + "\n";
+                    }
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -231,6 +239,11 @@ namespace LunchClubMailer
                     List<LunchClubMember> group = members.GetRange(members.Count() - 4, 4);
                     List<LunchClubGuest> guests = GetGuests(attendingGuests, ref groupsLeft);
                     SendGroupEmail(group, guests);
+                    foreach(LunchClubGuest guest in guests)
+                    {
+                        organizerText += guest.name + "; " + guest.adminName + "\n";
+                    }
+
                     foreach (LunchClubMember member in group)
                     {
                         organizerText += member.name + "\n";
@@ -243,6 +256,10 @@ namespace LunchClubMailer
                 List<LunchClubMember> group1 = members.GetRange(0, members.Count() / 2); // first half
                 List<LunchClubGuest> guestGroup1 = attendingGuests.GetRange(0, attendingGuests.Count() / 2);
                 SendGroupEmail(group1, guestGroup1);
+                foreach (LunchClubGuest guest in guestGroup1)
+                {
+                    organizerText += guest.name + "; " + guest.adminName + "\n";
+                }
                 foreach (LunchClubMember member in group1)
                 {
                     organizerText += member.name + "\n";
@@ -252,6 +269,10 @@ namespace LunchClubMailer
                 List<LunchClubMember> group2 = members.GetRange(members.Count() / 2, members.Count() - members.Count() / 2); //second half
                 List<LunchClubGuest> guestGroup2 = attendingGuests.GetRange(attendingGuests.Count() / 2, attendingGuests.Count() - attendingGuests.Count() / 2);
                 SendGroupEmail(group2, guestGroup2);
+                foreach (LunchClubGuest guest in guestGroup2)
+                {
+                    organizerText += guest.name + "; " + guest.adminName + "\n";
+                }
                 foreach (LunchClubMember member in group2)
                 {
                     organizerText += member.name + "\n";
@@ -360,6 +381,7 @@ namespace LunchClubMailer
 
         private void LaunchSpecialGuests()
         {
+            SaveFile();
             SpecialGuestsWindow guestWindow = new SpecialGuestsWindow(guestsModel);
             guestWindow.Show();
         }
